@@ -1,0 +1,49 @@
+\subsection{Cahier des charges}
+% Dans ce document, je fais référence au livre de Paul Ver Eecke \cite{VerEecke1960Archimede} et à celui de Sherman Stein \cite{stein1999archimedes} et \cite{minda2008triangles}.
+
+\subsubsection{Objectifs}
+\textit{Quels sont les objectifs demandés ?}\\
+
+\begin{itemize}
+    \item L’objectif principal est l’automatisation des désignations des arbitres pour une période donnée. Il faut que cet algorithme puisse proposer un arbitre habilité et disponible pour chaque match de la période voulue.
+    \item Un autre objectif essentiel est la mise en place d’une matrice des distances entre chaque arbitre et chaque club, qui pourra servir à faciliter la désignation des arbitres pour les gestionnaires.
+    \item Enfin, il faut également améliorer l’interface graphique et ajouter quelques fonctionnalités.
+\end{itemize}
+
+\vspace{1cm}
+
+\textit{Quelles sont les fonctionnalités à ajouter à l’interface ?}\\
+
+\begin{itemize}
+    \item Il faut que l’interface affiche tous les matchs à venir de la saison sous forme de tableau, qu’on pourra également trier par poule si voulu. Pour le confort des utilisateurs, Le tri par poule doit se faire sous forme de SELECT avec la possibilité de rechercher une valeur dans celui-ci.
+    \item Le tri des matchs par colonne doit être possible et une pagination doit être mise en place.
+    \item (Optionnel) Une barre de recherche doit également être disponible pour trouver une donnée précise dans ce tableau.
+    \item Il faut pouvoir désigner les arbitres directement depuis cette interface, en affichant un SELECT avec une liste de tous les arbitres disponibles. Cette liste d’arbitres doit afficher plusieurs informations essentielles les concernant : le numéro de licence, le niveau, le grade, et la distance les séparant du gymnase du match. Les arbitres doivent également être triés par état de disponibilité pour le match sélectionné, avec un code couleur différent pour chacun.
+    \item La désignation doit se faire de façon automatique au changement du SELECT pour éviter de perdre les sélections en cas d’oubli.
+    \item L'interface doit également permettre de lancer l’algorithme d’automatisation des désignations en permettant de choisir une période voulue et de lancer les désignations via un bouton.
+\end{itemize}
+
+\newpage
+
+\textit{Précisions concernant l'automatisation des désignations ?}\\
+
+\begin{itemize}
+    \item Il faut pouvoir distinguer les matchs pour lesquelles deux arbitres sont nécessaires, et proposer le bon nombre d’arbitres à chaque fois. 
+    \item Il ne faut proposer que des arbitres qui sont habilités à arbitrer, et disponibles le jour du match : c’est à dire qui n’ont pas précisé d’indisponibilité, et qui ne sont pas déjà désignés sur un autre match. 
+    \item Prendre en compte les exceptions : les arbitres ne peuvent pas arbitrer un match joué par leur club, et les matchs du club à qui ils ont donné leurs points d’arbitrage.
+    \item La distance séparant les arbitres du gymnase doit aussi être prise en compte, mais être flexible pour éviter les désignations répétitives des mêmes arbitres pour les mêmes gymnases.
+    \item L’algorithme doit proposer des arbitres pour chaque match de la période, mais également permettre le changement manuel de ceux-ci directement sur l’interface. De plus, la validation des désignations automatiques, contrairement aux désignations manuelles, devra se faire grâce à un bouton de confirmation.
+    \item Certains matchs sont de type ‘tournois’ et se déroulent donc au même endroit : l’algorithme doit proposer le même arbitre pour chaque paquet de trois matchs de la même poule du même tournois.
+\end{itemize}
+
+
+\subsubsection{Contraintes techniques}
+
+Les technologies utilisées sont :\\
+
+\begin{itemize}
+    \item Bootstrap 4.6 (une autre version peut cependant être utilisée)
+    \item Javascript / JQuery 3.6
+    \item PHP 8 (aucun framework)
+    \item MySQL 8.0
+\end{itemize}

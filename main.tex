@@ -1,0 +1,27 @@
+\documentclass[12pt]{article}   % Précise le type de document, et la taille de la police de caractère
+% packages
+\input{packages.tex}
+% variables
+\input{variables.tex}
+
+\begin{document}
+
+% page de couverture
+\input{pages/page_couverture}    % Inclut le code contenu dans un fichier comme s'il était entré ici
+
+% table des matières
+\tableofcontents
+
+% sections
+% Le package newclude mis en commentaire permet d'introduire une * pour éviter le saut de page entre les section
+\include{pages/introduction/resume}
+\include{pages/introduction/cahier_des_charges}
+\include{pages/introduction/mise_en_place} 
+
+
+\include{pages/donnees/modelisation}
+\include{pages/donnees/configuration}
+% bibliographie
+\bibliography{mathbib}
+
+\end{document}
