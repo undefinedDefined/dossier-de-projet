@@ -1,0 +1,11 @@
+\subsection{Sécurité}
+\vspace{1cm}
+
+Ce projet n’est qu’une branche d’une transition numérique plus importante, et est destiné à un public privé. Il n’a pour but d’être accessible que par les gestionnaires fédéraux grâce à des identifiants privés attribués par la fédération. \\
+
+Le principal aspect de la sécurité pris en compte concerne les requêtes SQL car la base de données utilisée pour ce projet n’est pas directement liée à celle de la fédération. 
+Ceci a été fait dans le cas d’un futur changement dans la récupération des paramètres pour effectuer ces requêtes. En effet, ces paramètres sont pour l’instant récupérés en interne mais pourraient potentiellement être récupérés par des formulaires.\\
+
+De plus, les différentes pages permettant le renvoi d’informations via AJAX nettoient les données reçues grâce à la fonction \colored{htmlspecialchars()} pour éviter l’exploitation de la faille XSS. Cette faille permet à un attaquant d’envoyer du code malveillant sur un site, ce qui est contré par cette fonction car celle-ci transforme les balises html en entités correspondantes.\\
+
+Finalement, aucun formulaire n’est intégré dans l’interface. Dans le cas contraire, il aurait fallut mettre en place un système de token pour éviter une exploitation malveillante de la faille CSRF. Ce système permet en effet de confirmer l’identité de la personne envoyant la requête.
